@@ -1,0 +1,11 @@
+.home-page {
+  padding: 20px;
+  animation: fade-in 0.3s ease-in-out;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

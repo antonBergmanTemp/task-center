@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Section, Cell, Image, List } from '@telegram-apps/telegram-ui';
 import type { FC } from 'react';
 
@@ -7,6 +9,13 @@ import { Page } from '@/components/Page.tsx';
 import tonSvg from './ton.svg';
 
 export const IndexPage: FC = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect to the home page if this is the main entry
+    navigate('/home');
+  }, [navigate]);
+
   return (
     <Page back={false}>
       <List>

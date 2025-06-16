@@ -1,0 +1,24 @@
+.page-transition {
+  position: relative;
+  height: calc(100vh - 56px);
+  /* Subtract toolbar height */
+  overflow-y: auto;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.page-transition--animating {
+  animation: slide-up 0.3s ease-out;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
