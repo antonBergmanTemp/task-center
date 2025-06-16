@@ -1,24 +1,30 @@
+import { FC, PropsWithChildren, useEffect } from 'react';
+import { backButton } from '@telegram-apps/sdk';
+import { Header } from '@/components/Header/Header.tsx';
 import { useNavigate } from 'react-router-dom';
-import { hideBackButton, onBackButtonClick, showBackButton } from '@telegram-apps/sdk-react';
-import { type PropsWithChildren, useEffect } from 'react';
 
-export function Page({ children, back = true }: PropsWithChildren<{
-  /**
-   * True if it is allowed to go back from this page.
-   */
-  back?: boolean
-}>) {
+interface PageProps extends PropsWithChildren {
+  back?: boolean;
+}
+
+export const Page: FC<PageProps> = ({ children, back = true }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (back) {
-      showBackButton();
-      return onBackButtonClick(() => {
+    if (back && backButton.show.isAvailable()) {
+      backButton.show();
+      return backButton.onClick(() => {
         navigate(-1);
       });
+    } else if (backButton.hide.isAvailable()) {
+      backButton.hide();
     }
-    hideBackButton();
   }, [back]);
 
-  return <>{children}</>;
-}
+  return (
+    <div className="page">
+      <Header />
+      {children}
+    </div>
+  );
+};
