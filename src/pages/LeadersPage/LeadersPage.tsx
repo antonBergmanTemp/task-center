@@ -7,6 +7,8 @@ import silverMedal from "@/assets/medals/silver.png";
 import bronzeMedal from "@/assets/medals/bronze.png";
 import { formatNumber } from "@/utils/formatters";
 import "./LeadersPage.css";
+import { extractUsernameFromInitData } from "@/utils/telegramUtils";
+import { initData } from "@telegram-apps/sdk-react";
 
 interface LeaderboardData {
   WebappUserKey: string;
@@ -30,6 +32,8 @@ export const LeadersPage: React.FC = () => {
   const [leaderboardData, setLeaderboardData] =
     useState<LeaderboardData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const username = extractUsernameFromInitData(initData.raw());
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
@@ -102,7 +106,7 @@ export const LeadersPage: React.FC = () => {
               </div>
 
               <h2 className="user-display-name">
-                {leaderboardData?.Name || "Anonymous User"}
+                {username || "Anonymous User"}
               </h2>
 
               <div className="user-rank-container">
