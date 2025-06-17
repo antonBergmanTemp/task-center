@@ -23,12 +23,32 @@ export const translations = {
 
   // Leaders page
   "leaders.title": {
-    ENG: "Leaders",
-    RUS: "Лидеры",
+    ENG: "Gifthorse",
+    RUS: "Gifthorse",
   },
-  "leaders.description": {
-    ENG: "This is the leaderboard page!",
-    RUS: "Это страница таблицы лидеров!",
+  "leaders.subtitle": {
+    ENG: "Leaderboard",
+    RUS: "Таблица лидеров",
+  },
+  "leaders.users": {
+    ENG: "Users:",
+    RUS: "Пользователей:",
+  },
+  "leaders.ap": {
+    ENG: "AP",
+    RUS: "АП",
+  },
+  "leaders.loading": {
+    ENG: "Loading leaderboard data...",
+    RUS: "Загрузка данных...",
+  },
+  "leaders.league.platinum": {
+    ENG: "PLATINUM",
+    RUS: "ПЛАТИНА",
+  },
+  "leaders.anonymousUser": {
+    ENG: "Anonymous User",
+    RUS: "Анонимный пользователь",
   },
 
   // Friends page
