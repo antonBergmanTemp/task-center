@@ -33,7 +33,7 @@ export function App() {
 
         const _initData = initData.raw();
 
-        // const initData =
+        // const _initData =
         //   "user=%7B%22id%22%3A246335443%2C%22first_name%22%3A%22Cesare%22%2C%22last_name%22%3A%22The%20Cat%22%2C%22username%22%3A%22coyote_a%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2FD1SPEvtome4R0aGmgDohYLP-f6u0Zcu3OKlpAy7LYIk.svg%22%7D&chat_instance=-6342777270208365349&chat_type=sender&auth_date=1747410605&signature=-NilY1tSPklbCcACYT1GH-R9UoWzwp_yiK3nAVVMtAlT6mn99Lkpc6KMva8L91HbZiCYGeYEYPXjhcfth6OaBQ&hash=e5d815a1bef007c5f1faed7857b1fba250372dc92eed0714d509b2194f5bf7ee";
 
         if (!_initData) {
@@ -46,7 +46,6 @@ export function App() {
 
         const authData = await apiClient.auth.login(_initData, startParam);
 
-        console.log("Login successful:", authData);
         setIsLoggedIn(true);
       } catch (error) {
         console.error("Login failed:", error);

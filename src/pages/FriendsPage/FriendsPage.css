@@ -1,9 +1,367 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
 .friends-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #000;
+  color: white;
+  font-family: "Lato", sans-serif;
   padding: 20px;
+  padding-bottom: 70px;
   animation: fade-in 0.3s ease-in-out;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.friends-page::-webkit-scrollbar {
+  display: none;
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Header Section - 15% of height */
+.friends-header {
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.friends-header h1 {
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  margin: 0 0 5px 0;
+}
+
+.friends-subheader {
+  font-size: 14px;
+  color: #888;
+  text-align: center;
+}
+
+/* Rewards Section - 30% of height */
+.rewards-section {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.rewards-boxes {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.reward-box {
+  flex: 1;
+  background-color: #1c1c1e;
+  border-radius: 15px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reward-label {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.reward-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.reward-description {
+  font-size: 12px;
+  color: #7c59ff;
+  text-align: center;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 5px;
+}
+
+.action-button {
+  width: 100%;
+  padding: 16px;
+  border-radius: 40px; /* Changed to 40px as requested */
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.send-link {
+  background-color: #7c59ff;
+  color: white;
+}
+
+.send-link:hover {
+  background-color: #6a4bde;
+}
+
+.copy-link {
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+}
+
+.copy-link:hover {
+  background-color: #111;
+}
+
+/* Friends List Section - 55% of height */
+.friends-list-section {
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+}
+
+.friends-list-header {
+  display: flex;
+  justify-content: center; /* Changed to center */
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.friends-list-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.refresh-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  position: absolute;
+  right: 0;
+}
+
+.refresh-button img {
+  width: 20px;
+  height: 20px;
+  transition: transform 1s ease;
+}
+
+.refresh-button.refreshing img {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.friends-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.friends-list::-webkit-scrollbar {
+  display: none;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.friend-avatar {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  border-radius: 25px;
+  background-color: #1a1a1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.avatar-placeholder {
+  font-size: 22px;
+  color: #888;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.friend-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.friend-name {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.friend-ap {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.friend-bonus {
+  font-size: 16px;
+  font-weight: 600;
+  color: #7c59ff;
+}
+
+.friends-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+/* Empty state styling */
+.friends-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 20px;
+}
+
+.empty-state-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.empty-state-subtitle {
+  font-size: 14px;
+  color: #888;
+  max-width: 260px;
+}
+
+/* Popup Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fade-in 0.2s ease;
+}
+
+.popup-content {
+  background-color: #1c1c1e;
+  border-radius: 15px;
+  padding: 25px;
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+  animation: slide-up 0.3s ease;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup-content h2 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.popup-link {
+  background-color: #111;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  word-break: break-all;
+  margin-bottom: 20px;
+}
+
+.popup-copy {
+  background-color: #7c59ff;
+  color: white;
+  border: none;
+  border-radius: 40px; /* Changed to 40px */
+  padding: 12px 20px;
+  width: 100%;
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.popup-copy:hover {
+  background-color: #6a4bde;
 }

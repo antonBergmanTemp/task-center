@@ -56,9 +56,65 @@ export const translations = {
     ENG: "Friends",
     RUS: "Друзья",
   },
+  "friends.subtitle": {
+    ENG: "Invite your friends and earn bonus points together!",
+    RUS: "Приглашайте друзей и зарабатывайте бонусные очки вместе!",
+  },
+  "friends.receive": {
+    ENG: "Receive",
+    RUS: "Получите",
+  },
+  "friends.ofFriendsPoints": {
+    ENG: "of friends' points",
+    RUS: "от очков друзей",
+  },
+  "friends.plus": {
+    ENG: "Plus",
+    RUS: "Плюс",
+  },
+  "friends.fromTheirReferrals": {
+    ENG: "from their referrals",
+    RUS: "от их рефералов",
+  },
+  "friends.sendLink": {
+    ENG: "Send Link",
+    RUS: "Отправить ссылку",
+  },
+  "friends.copyLink": {
+    ENG: "Copy Link",
+    RUS: "Копировать ссылку",
+  },
+  "friends.friendsCount": {
+    ENG: "Friends:",
+    RUS: "Друзья:",
+  },
+  "friends.loading": {
+    ENG: "Loading friends...",
+    RUS: "Загрузка друзей...",
+  },
+  "friends.linkCopied": {
+    ENG: "Link Copied",
+    RUS: "Ссылка скопирована",
+  },
+  "friends.copy": {
+    ENG: "Copy",
+    RUS: "Копировать",
+  },
   "friends.description": {
     ENG: "Connect with your friends here!",
     RUS: "Подключайтесь к друзьям здесь!",
+  },
+  "friends.noFriendsYet": {
+    ENG: "You haven't added any friends yet :(",
+    RUS: "Вы еще не добавили друзей :(",
+  },
+  "friends.expandList": {
+    ENG: "Expand your list by sending link to someone",
+    RUS: "Расширьте свой список, отправив ссылку кому-нибудь",
+  },
+  "friends.inviteMessage": {
+    ENG: "Hey! Join me in this awesome task app. We can earn points together!",
+    RUS: "Привет! Присоединяйся ко мне в этом крутом приложении. Мы можем зарабатывать очки вместе!",
   },
 
   // About modal

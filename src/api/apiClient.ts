@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from "axios";
 import { authService, AuthResponse } from "@/services/authService";
 import { extractUserIdFromInitData } from "@/utils/telegramUtils";
 
-const BASE_URL = "https://facadeservice.cryptodev.gifthorse.store";
+const BASE_URL = "https://facadeservice-cryptodev.gifthorse.store";
 
 // Create axios instance
 const api = axios.create({
@@ -61,7 +61,6 @@ export const apiClient = {
       try {
         // Store user ID for future use
         currentUserId = extractUserIdFromInitData(inputData);
-        console.log("Extracted user ID:", currentUserId);
 
         const data = {
           inputData: decodeURIComponent(inputData),
@@ -73,13 +72,10 @@ export const apiClient = {
           ok: boolean;
         }>("/api/login", data);
 
-        // Parse the result string to get the auth data
         const authData: AuthResponse = JSON.parse(response.result);
 
-        // Store the auth data
         authService.setAuthData(authData);
 
-        // Also store user ID for convenience
         if (currentUserId) {
           localStorage.setItem("userId", currentUserId);
         }
@@ -103,6 +99,24 @@ export const apiClient = {
       }
 
       return apiClient.get(`/api/get-leaderboard/${id}`);
+    },
+  },
+
+  // Friends endpoints
+  friends: {
+    async getFriends(
+      page: number = 1,
+      limit: number = 10,
+      userId?: string
+    ): Promise<any> {
+      // Use provided userId, or stored userId, or fallback to localStorage
+      const id = userId || currentUserId || localStorage.getItem("userId");
+
+      if (!id) {
+        throw new Error("User ID not available. Please login first.");
+      }
+
+      return apiClient.get(`/api/get-friend/${id}/${page}/${limit}`);
     },
   },
 
